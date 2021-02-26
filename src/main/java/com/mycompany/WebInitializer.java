@@ -10,12 +10,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 @Configuration
-public class WebInitializer implements ServletContextInitializer {
+public class WebInitializer implements ServletContextInitializer{
 
     private static final String PARAM_APP_BEAN = "applicationBean";
 
     @Override
-    public void onStartup(ServletContext sc) throws ServletException {
+    public void onStartup(ServletContext sc) {
         FilterRegistration filter = sc.addFilter("wicket-filter", WicketFilter.class);
         filter.setInitParameter(WicketFilter.APP_FACT_PARAM, SpringWebApplicationFactory.class.getName());
         filter.setInitParameter(PARAM_APP_BEAN, "wicketApplication");

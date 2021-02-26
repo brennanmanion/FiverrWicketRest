@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class WicketApplication extends WebApplication {
@@ -21,6 +22,7 @@ public class WicketApplication extends WebApplication {
 		SpringApplication.run(WicketApplication.class, args);
 
 	}
+
 
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
