@@ -74,6 +74,12 @@
 		    <version>4.7.0.Final</version>
 		</dependency>
         
+		<dependency>
+		    <groupId>org.wicketstuff</groupId>
+		    <artifactId>wicketstuff-annotation</artifactId>
+		    <version>9.2.0</version>
+		</dependency>
+
 
     </dependencies>
     <build>

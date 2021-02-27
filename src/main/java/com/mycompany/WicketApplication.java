@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.mycompany.pages.HomePage;
+
 @SpringBootApplication
 public class WicketApplication extends WebApplication {
 
