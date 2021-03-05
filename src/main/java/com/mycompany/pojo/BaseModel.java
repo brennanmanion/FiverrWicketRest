@@ -28,6 +28,6 @@ public abstract class BaseModel implements IModel {
     @Setter
     @Getter
     @Column(name = "lastModified")
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime lastModified;
 }
