@@ -15,4 +15,13 @@
         </createTable>        
     </changeSet>      
     
+<changeSet author="brennan" id="addColumnBaseModel-lastModified"> 
+	<addColumn tableName="users" >
+		<column
+			name="lastModified"
+			type="DATETIME">
+		</column>   
+	</addColumn>  
+</changeSet>    
+    
 </databaseChangeLog>
