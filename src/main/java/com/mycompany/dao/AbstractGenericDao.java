@@ -1,14 +1,16 @@
 package com.mycompany.dao;
 
 import org.hibernate.Session;
+import org.joda.time.DateTime;
 
+import com.mycompany.pojo.BaseModel;
 import com.mycompany.pojo.IModel;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.lang.reflect.ParameterizedType;
 
-public class AbstractGenericDao<T extends IModel> implements IGenericDao<T> {
+public abstract class AbstractGenericDao<T extends BaseModel> implements IGenericDao<T> {
     @PersistenceContext
     protected EntityManager em;
 
@@ -22,6 +24,7 @@ public class AbstractGenericDao<T extends IModel> implements IGenericDao<T> {
 
     @Override
     public void save(T entity) {
+    	setDefaults(entity);
         em.persist(entity);
     }
 
@@ -44,4 +47,12 @@ public class AbstractGenericDao<T extends IModel> implements IGenericDao<T> {
     public Session getSession() {
         return (Session) this.em.getDelegate();
     }
+    
+    @Override
+    public void setLastModified(final T entity)
+    {
+    	entity.setLastModified(new DateTime());
+    }
+    
+    public abstract void setDefaults(final T entity);    
 }

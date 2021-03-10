@@ -10,5 +10,6 @@ public interface IGenericDao<T extends IModel>{
     T update(final T entity);
     void delete(final Long id);
     T findReference(final Long id);
-    Session getSession();	
+    Session getSession();
+    void setLastModified(final T entity);
 }
