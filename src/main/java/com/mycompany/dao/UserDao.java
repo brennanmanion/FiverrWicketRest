@@ -2,6 +2,7 @@ package com.mycompany.dao;
 
 import java.util.List;
 
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,5 +25,9 @@ public class UserDao extends AbstractGenericDao<User> implements IUserDao{
         Query query = em.createQuery(hql);
         return query.getResultList();
 	}
-
+	
+	@Override
+	public void setDefaults(User user) {
+		user.setEmail("someEmail@email.com");
+	}
 }
