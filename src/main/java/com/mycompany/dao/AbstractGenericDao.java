@@ -24,6 +24,7 @@ public abstract class AbstractGenericDao<T extends BaseModel> implements IGeneri
 
     @Override
     public void save(T entity) {
+    	setLastModified(entity);
     	setDefaults(entity);
         em.persist(entity);
     }

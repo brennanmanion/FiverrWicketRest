@@ -13,29 +13,43 @@
             <column name="email" type="VARCHAR(255)"/>
             <column name="version" type="BIGINT"/>
         </createTable>        
-    </changeSet>          
-<changeSet author="brennan" id="addColumnBaseModel-lastModified"> 
-	<addColumn tableName="users" >
-		<column
-			name="lastModified"
-			type="DATETIME">
-		</column>   
-	</addColumn>  
-</changeSet>
-<changeSet author="brennan" id="addSaltAddHashedPassword"> 
-	<addColumn tableName="users" >
-		<column
-			name="password"
-			type="VARCHAR(128)">
-		</column>
-	</addColumn>
-	<addColumn tableName="users" >
-		<column
-			name="salt"
-			type="VARCHAR(128)">
-		</column>
-	</addColumn>
-</changeSet>
+    </changeSet>
+	<changeSet author="brennan" id="addColumnBaseModel-lastModified"> 
+		<addColumn tableName="users" >
+			<column
+				name="lastModified"
+				type="DATETIME">
+			</column>   
+		</addColumn>  
+	</changeSet>
+	<changeSet author="brennan" id="addSaltAddHashedPassword"> 
+		<addColumn tableName="users" >
+			<column
+				name="password"
+				type="VARCHAR(128)">
+			</column>
+		</addColumn>
+		<addColumn tableName="users" >
+			<column
+				name="salt"
+				type="VARCHAR(128)">
+			</column>
+		</addColumn>
+	</changeSet>
     
+    <changeSet author="brennan" id="createTable-tradingViewInteractions">
+        <createTable tableName="tradingViewInteractions">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_tradingViewInteractions"/>
+            </column>
+			<column name="version" type="BIGINT"/>
+			<column name="lastModified" type="DATETIME"/>
+            <column name="ticker" type="VARCHAR(255)"/>
+            <column name="timeInterval" type="BIGINT"/>
+            <column name="price" type="DECIMAL(10,2)"/>
+			<column name="date" type="DATETIME"/>
+			<column name="tradeAction" type="VARCHAR(4)"/>			
+        </createTable>        
+    </changeSet>    
     
 </databaseChangeLog>
