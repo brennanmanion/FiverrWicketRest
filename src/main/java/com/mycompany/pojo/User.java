@@ -25,4 +25,14 @@ public class User extends BaseModel{
     @Setter
     @Column(name = "email")    
 	public String email;
+    
+    @Getter
+    @Setter
+    @Column(name = "password", length = 128)
+	public String password;
+    
+    @Getter
+    @Setter
+    @Column(name = "salt", length = 128)
+	public String salt;
 }
