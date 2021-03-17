@@ -13,8 +13,7 @@
             <column name="email" type="VARCHAR(255)"/>
             <column name="version" type="BIGINT"/>
         </createTable>        
-    </changeSet>      
-    
+    </changeSet>          
 <changeSet author="brennan" id="addColumnBaseModel-lastModified"> 
 	<addColumn tableName="users" >
 		<column
@@ -22,6 +21,21 @@
 			type="DATETIME">
 		</column>   
 	</addColumn>  
-</changeSet>    
+</changeSet>
+<changeSet author="brennan" id="addSaltAddHashedPassword"> 
+	<addColumn tableName="users" >
+		<column
+			name="password"
+			type="VARCHAR(128)">
+		</column>
+	</addColumn>
+	<addColumn tableName="users" >
+		<column
+			name="salt"
+			type="VARCHAR(128)">
+		</column>
+	</addColumn>
+</changeSet>
+    
     
 </databaseChangeLog>
